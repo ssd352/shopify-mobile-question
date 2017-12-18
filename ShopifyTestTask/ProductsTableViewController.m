@@ -57,16 +57,20 @@
     Product * product = self.products[indexPath.row];
     cell.textLabel.text = product.title;
     cell.detailTextLabel.text = product.productDescription;
-    cell.imageView.image = [UIImage imageWithData:product.image];
     
-    CGRect frame = cell.imageView.frame;
-    frame.size.width = 100;
-    cell.imageView.frame = frame;
     
+     CGRect frame = cell.imageView.frame;
+    frame.size = CGSizeMake(100, 100);
+     cell.imageView.frame = frame;
+    //    cell.imageView.image.size.width = 100;
+    //    cell.imageView.image.size.height = 100;
+//    cell.imageView.frame.size = CGSizeMake(100, 100);
+    NSLog(@"Size of imageview is %f x %f", cell.imageView.frame.size.width, cell.imageView.frame.size.height);
     cell.imageView.contentMode = UIViewContentModeScaleAspectFit;
-//    cell.imageView.image.size.width = 100;
-//    cell.imageView.image.size.height = 100;
-//    cell.imageView.frame = CGRectMake(cell.imageView.frame.origin.x, cell.imageView.frame.origin.y, 100, 100);
+    cell.imageView.clipsToBounds = YES;
+    
+    cell.imageView.image = [UIImage imageWithData:product.image];
+    NSLog(@"Size of image is %f x %f", cell.imageView.image.size.width, cell.imageView.image.size.height);
     
     return cell;
 }

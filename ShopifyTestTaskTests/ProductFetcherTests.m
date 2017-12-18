@@ -30,8 +30,11 @@
     // Use XCTAssert and related functions to verify your tests produce the correct results.
     ProductFetcher * pf = [[ProductFetcher alloc]init];
     NSLog(@"Sending Request");
-    [pf sendRequest];
-    NSLog(@"%@", pf.result);
+    [pf requestProducts];
+    for (Product * p in pf.products) {
+        NSLog(@"title is %@ and description is %@", p.title, p.productDescription);
+    }
+    NSLog(@"%@", pf.products);
 }
 
 - (void)testPerformanceExample {
