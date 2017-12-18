@@ -8,13 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		5C199CE51FE72F8100852A01 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C199CE41FE72F8100852A01 /* AppDelegate.m */; };
-		5C199CE81FE72F8100852A01 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C199CE71FE72F8100852A01 /* ViewController.m */; };
 		5C199CEB1FE72F8100852A01 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C199CE91FE72F8100852A01 /* Main.storyboard */; };
 		5C199CED1FE72F8100852A01 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C199CEC1FE72F8100852A01 /* Assets.xcassets */; };
 		5C199CF01FE72F8100852A01 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C199CEE1FE72F8100852A01 /* LaunchScreen.storyboard */; };
 		5C199CF31FE72F8100852A01 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C199CF21FE72F8100852A01 /* main.m */; };
 		5C199CFD1FE72F8100852A01 /* ShopifyTestTaskTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C199CFC1FE72F8100852A01 /* ShopifyTestTaskTests.m */; };
 		5C199D081FE72F8100852A01 /* ShopifyTestTaskUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C199D071FE72F8100852A01 /* ShopifyTestTaskUITests.m */; };
+		5C199D1B1FE72FEA00852A01 /* ProductTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C199D191FE72FE900852A01 /* ProductTests.m */; };
+		5C199D1C1FE72FEA00852A01 /* ProductFetcherTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C199D1A1FE72FE900852A01 /* ProductFetcherTests.m */; };
+		5C199D361FE730BD00852A01 /* ProductFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C199D331FE730BD00852A01 /* ProductFetcher.m */; };
+		5C199D371FE730BD00852A01 /* Product.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C199D351FE730BD00852A01 /* Product.m */; };
+		5CAF009B1FE73C2C000C8BEB /* ProductsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CAF009A1FE73C2C000C8BEB /* ProductsTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,8 +42,6 @@
 		5C199CE01FE72F8100852A01 /* ShopifyTestTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShopifyTestTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C199CE31FE72F8100852A01 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		5C199CE41FE72F8100852A01 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		5C199CE61FE72F8100852A01 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		5C199CE71FE72F8100852A01 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		5C199CEA1FE72F8100852A01 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5C199CEC1FE72F8100852A01 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5C199CEF1FE72F8100852A01 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -51,6 +53,14 @@
 		5C199D031FE72F8100852A01 /* ShopifyTestTaskUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShopifyTestTaskUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C199D071FE72F8100852A01 /* ShopifyTestTaskUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShopifyTestTaskUITests.m; sourceTree = "<group>"; };
 		5C199D091FE72F8100852A01 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5C199D191FE72FE900852A01 /* ProductTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductTests.m; sourceTree = "<group>"; };
+		5C199D1A1FE72FE900852A01 /* ProductFetcherTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductFetcherTests.m; sourceTree = "<group>"; };
+		5C199D321FE730BD00852A01 /* Product.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Product.h; sourceTree = "<group>"; };
+		5C199D331FE730BD00852A01 /* ProductFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductFetcher.m; sourceTree = "<group>"; };
+		5C199D341FE730BD00852A01 /* ProductFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductFetcher.h; sourceTree = "<group>"; };
+		5C199D351FE730BD00852A01 /* Product.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Product.m; sourceTree = "<group>"; };
+		5CAF00991FE73C2C000C8BEB /* ProductsTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProductsTableViewController.h; sourceTree = "<group>"; };
+		5CAF009A1FE73C2C000C8BEB /* ProductsTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProductsTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,15 +111,16 @@
 		5C199CE21FE72F8100852A01 /* ShopifyTestTask */ = {
 			isa = PBXGroup;
 			children = (
+				5C199D251FE7305F00852A01 /* Model */,
 				5C199CE31FE72F8100852A01 /* AppDelegate.h */,
 				5C199CE41FE72F8100852A01 /* AppDelegate.m */,
-				5C199CE61FE72F8100852A01 /* ViewController.h */,
-				5C199CE71FE72F8100852A01 /* ViewController.m */,
 				5C199CE91FE72F8100852A01 /* Main.storyboard */,
 				5C199CEC1FE72F8100852A01 /* Assets.xcassets */,
 				5C199CEE1FE72F8100852A01 /* LaunchScreen.storyboard */,
 				5C199CF11FE72F8100852A01 /* Info.plist */,
 				5C199CF21FE72F8100852A01 /* main.m */,
+				5CAF00991FE73C2C000C8BEB /* ProductsTableViewController.h */,
+				5CAF009A1FE73C2C000C8BEB /* ProductsTableViewController.m */,
 			);
 			path = ShopifyTestTask;
 			sourceTree = "<group>";
@@ -117,6 +128,8 @@
 		5C199CFB1FE72F8100852A01 /* ShopifyTestTaskTests */ = {
 			isa = PBXGroup;
 			children = (
+				5C199D1A1FE72FE900852A01 /* ProductFetcherTests.m */,
+				5C199D191FE72FE900852A01 /* ProductTests.m */,
 				5C199CFC1FE72F8100852A01 /* ShopifyTestTaskTests.m */,
 				5C199CFE1FE72F8100852A01 /* Info.plist */,
 			);
@@ -130,6 +143,17 @@
 				5C199D091FE72F8100852A01 /* Info.plist */,
 			);
 			path = ShopifyTestTaskUITests;
+			sourceTree = "<group>";
+		};
+		5C199D251FE7305F00852A01 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5C199D321FE730BD00852A01 /* Product.h */,
+				5C199D351FE730BD00852A01 /* Product.m */,
+				5C199D341FE730BD00852A01 /* ProductFetcher.h */,
+				5C199D331FE730BD00852A01 /* ProductFetcher.m */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -265,9 +289,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5C199CE81FE72F8100852A01 /* ViewController.m in Sources */,
+				5C199D371FE730BD00852A01 /* Product.m in Sources */,
+				5C199D361FE730BD00852A01 /* ProductFetcher.m in Sources */,
 				5C199CF31FE72F8100852A01 /* main.m in Sources */,
 				5C199CE51FE72F8100852A01 /* AppDelegate.m in Sources */,
+				5CAF009B1FE73C2C000C8BEB /* ProductsTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,6 +302,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				5C199CFD1FE72F8100852A01 /* ShopifyTestTaskTests.m in Sources */,
+				5C199D1B1FE72FEA00852A01 /* ProductTests.m in Sources */,
+				5C199D1C1FE72FEA00852A01 /* ProductFetcherTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

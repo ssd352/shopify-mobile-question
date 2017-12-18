@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  ProductsTableViewController.h
 //  ShopifyTestTask
 //
 //  Created by SS D on 2017-12-17.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface ProductsTableViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource>
 
 @end
-
