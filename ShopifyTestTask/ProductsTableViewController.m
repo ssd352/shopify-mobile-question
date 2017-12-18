@@ -57,7 +57,16 @@
     Product * product = self.products[indexPath.row];
     cell.textLabel.text = product.title;
     cell.detailTextLabel.text = product.productDescription;
-//    cell.detailTextLabel
+    cell.imageView.image = [UIImage imageWithData:product.image];
+    
+    CGRect frame = cell.imageView.frame;
+    frame.size.width = 100;
+    cell.imageView.frame = frame;
+    
+    cell.imageView.contentMode = UIViewContentModeScaleAspectFit;
+//    cell.imageView.image.size.width = 100;
+//    cell.imageView.image.size.height = 100;
+//    cell.imageView.frame = CGRectMake(cell.imageView.frame.origin.x, cell.imageView.frame.origin.y, 100, 100);
     
     return cell;
 }
