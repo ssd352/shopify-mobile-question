@@ -7,7 +7,7 @@
 //
 
 #import <XCTest/XCTest.h>
-#import "ProductFetcher.h"
+#import "ProductsConnector.h"
 
 @interface ProductFetcherTests : XCTestCase
 
@@ -28,7 +28,7 @@
 - (void)testExample {
     // This is an example of a functional test case.
     // Use XCTAssert and related functions to verify your tests produce the correct results.
-    ProductFetcher * pf = [[ProductFetcher alloc]init];
+    ProductsConnector * pf = [[ProductsConnector alloc]init];
     NSLog(@"Sending Request");
     [pf requestProducts];
     for (Product * p in pf.products) {

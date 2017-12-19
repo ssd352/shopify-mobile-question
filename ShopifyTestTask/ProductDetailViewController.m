@@ -10,7 +10,7 @@
 
 @interface ProductDetailViewController ()
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicatorView;
-@property (weak, nonatomic) IBOutlet UINavigationItem *navigationItemBar;
+//@property (weak, nonatomic) IBOutlet UINavigationItem *navigationItemBar;
 @property Product * product;
 @end
 
@@ -31,7 +31,7 @@
     [self.activityIndicatorView startAnimating];
     [self.fetcher getProductDetailById:self.productId onCompletion:^(Product * _Nullable product, NSError * _Nullable error) {
         self.product = product;
-        self.navigationItemBar.title = product.title;
+        self.navigationItem.title = product.title;
         NSLog(@"Product Title is %@", product.title);
         [self.activityIndicatorView stopAnimating];
         self.activityIndicatorView.hidden = YES;

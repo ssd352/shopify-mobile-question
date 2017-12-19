@@ -7,15 +7,17 @@
 //
 
 #import "ProductsTableViewController.h"
-#import "ProductFetcher.h"
+#import "ProductsConnector.h"
 #import "Product.h"
 #import "ProductDetailViewController.h"
 
 @interface ProductsTableViewController ()
-@property ProductFetcher * fetcher;
+@property ProductsConnector * fetcher;
 @property NSArray <Product * > * products;
 @property NSString * selectedProductId;
 @property UIActivityIndicatorView * activityIndicator;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+
 @end
 
 @implementation ProductsTableViewController
@@ -41,9 +43,9 @@
     if (!self.products){
         self.activityIndicator.hidden = NO;
         [self.activityIndicator startAnimating];
-        self.fetcher = [[ProductFetcher alloc] init];
+        self.fetcher = [[ProductsConnector alloc] init];
         [self.fetcher requestProductsWithError:nil];
-        [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(productListUpdated) name:[ProductFetcher responseReceived] object:nil];
+        [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(productListUpdated) name:[ProductsConnector responseReceived] object:nil];
     }
 }
 
