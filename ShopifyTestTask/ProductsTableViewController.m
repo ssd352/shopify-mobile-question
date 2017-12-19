@@ -15,7 +15,7 @@
 @property ProductsConnector * fetcher;
 @property NSArray <Product * > * products;
 @property NSString * selectedProductId;
-@property UIActivityIndicatorView * activityIndicator;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
@@ -24,8 +24,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.activityIndicator = [[UIActivityIndicatorView alloc]initWithFrame:CGRectMake(self.view.frame.size.width / 2, 30, 100, 100)];
-    [self.view addSubview:self.activityIndicator];
+    
     self.activityIndicator.hidden = YES;
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
