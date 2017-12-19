@@ -12,8 +12,14 @@
 @property NSString * productId;
 @property NSString * title;
 @property NSString * productDescription;
+@property NSString * vendor;
+@property NSString * bodyHtml;
+
 @property NSData * image;
+
 @property NSDate * createdAt;
+@property NSDate * updatedAt;
 @property NSDate * publishedAt;
+
 -(instancetype)initWithTitle:(NSString*) title andDescription:(NSString *) description;
 @end

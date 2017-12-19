@@ -17,7 +17,7 @@
 @property NSString * selectedProductId;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-
+@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @end
 
 @implementation ProductsTableViewController
@@ -38,6 +38,12 @@
 }
 
 
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+
 -(void)viewDidAppear:(BOOL)animated{
     if (!self.products){
         self.activityIndicator.hidden = NO;
@@ -51,9 +57,12 @@
 
 -(void)productListUpdated{
     self.products = self.fetcher.products;
-    [self.tableView reloadData];
-    [self.activityIndicator stopAnimating];
-    self.activityIndicator.hidden = YES;
+    dispatch_async(dispatch_get_main_queue(), ^(void){
+        [self.tableView reloadData];
+        [self.activityIndicator stopAnimating];
+        self.activityIndicator.hidden = YES;
+    });
+    
 }
 
 #pragma mark - Table view data source
@@ -147,7 +156,7 @@
  // Pass the selected object to the new view controller.
      ProductDetailViewController * detailViewController = (ProductDetailViewController *)segue.destinationViewController;
      detailViewController.productId = self.selectedProductId;
-     detailViewController.fetcher = self.fetcher;
+//     detailViewController.fetcher = self.fetcher;
  }
 
 

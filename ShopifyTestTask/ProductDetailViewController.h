@@ -7,9 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ProductsConnector.h"
 
 @interface ProductDetailViewController : UIViewController
 @property NSString * productId;
-@property ProductsConnector * fetcher;
 @end

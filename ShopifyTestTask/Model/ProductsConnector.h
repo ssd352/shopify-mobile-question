@@ -14,5 +14,5 @@
 
 -(void) requestProductsWithError: ( NSError * _Nullable ) error;
 +(NSString *_Nonnull)responseReceived;
--(void)getProductDetailById:(NSString * _Nonnull) productId onCompletion:(void (^)(Product * _Nullable product, NSError * _Nullable error))completionHandler;//withError:(NSError * _Nullable) error;
+
 @end

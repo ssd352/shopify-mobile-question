@@ -20,6 +20,7 @@
 		5C199D371FE730BD00852A01 /* Product.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C199D351FE730BD00852A01 /* Product.m */; };
 		5C862C5E1FE891AA007DCA54 /* ProductDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C862C5D1FE891AA007DCA54 /* ProductDetailViewController.m */; };
 		5CAF009B1FE73C2C000C8BEB /* ProductsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CAF009A1FE73C2C000C8BEB /* ProductsTableViewController.m */; };
+		5CB593011FE9892F00B0E185 /* ProductFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CB593001FE9892F00B0E185 /* ProductFetcher.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +65,8 @@
 		5C862C5D1FE891AA007DCA54 /* ProductDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProductDetailViewController.m; sourceTree = "<group>"; };
 		5CAF00991FE73C2C000C8BEB /* ProductsTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProductsTableViewController.h; sourceTree = "<group>"; };
 		5CAF009A1FE73C2C000C8BEB /* ProductsTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProductsTableViewController.m; sourceTree = "<group>"; };
+		5CB592FF1FE9892F00B0E185 /* ProductFetcher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProductFetcher.h; sourceTree = "<group>"; };
+		5CB593001FE9892F00B0E185 /* ProductFetcher.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProductFetcher.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +160,8 @@
 				5C199D351FE730BD00852A01 /* Product.m */,
 				5C199D341FE730BD00852A01 /* ProductsConnector.h */,
 				5C199D331FE730BD00852A01 /* ProductsConnector.m */,
+				5CB592FF1FE9892F00B0E185 /* ProductFetcher.h */,
+				5CB593001FE9892F00B0E185 /* ProductFetcher.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -296,6 +301,7 @@
 			files = (
 				5C199D371FE730BD00852A01 /* Product.m in Sources */,
 				5C199D361FE730BD00852A01 /* ProductsConnector.m in Sources */,
+				5CB593011FE9892F00B0E185 /* ProductFetcher.m in Sources */,
 				5C199CF31FE72F8100852A01 /* main.m in Sources */,
 				5C862C5E1FE891AA007DCA54 /* ProductDetailViewController.m in Sources */,
 				5C199CE51FE72F8100852A01 /* AppDelegate.m in Sources */,

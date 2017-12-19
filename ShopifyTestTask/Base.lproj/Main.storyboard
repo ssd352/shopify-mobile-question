@@ -67,7 +67,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="kBW-fs-QFo" kind="showDetail" identifier="ProtoSegue" trigger="accessoryAction" action="showViewController:sender:" id="J6M-ty-pu6"/>
+                                            <segue destination="kBW-fs-QFo" kind="show" identifier="ProtoSegue" trigger="accessoryAction" id="J6M-ty-pu6"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -94,6 +94,7 @@
                     <navigationItem key="navigationItem" id="Mx2-RQ-GhK"/>
                     <connections>
                         <outlet property="activityIndicator" destination="qFu-Z6-8hY" id="yDE-gJ-CQZ"/>
+                        <outlet property="searchBar" destination="kfx-Hc-q7o" id="r0D-a0-Pm2"/>
                         <outlet property="tableView" destination="fsc-yh-3hJ" id="ate-Rs-Hfh"/>
                     </connections>
                 </viewController>
