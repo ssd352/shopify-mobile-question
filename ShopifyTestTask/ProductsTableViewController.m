@@ -9,33 +9,50 @@
 #import "ProductsTableViewController.h"
 #import "ProductFetcher.h"
 #import "Product.h"
+#import "ProductDetailViewController.h"
 
 @interface ProductsTableViewController ()
 @property ProductFetcher * fetcher;
 @property NSArray <Product * > * products;
+@property NSString * selectedProductId;
+@property UIActivityIndicatorView * activityIndicator;
 @end
 
 @implementation ProductsTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.activityIndicator = [[UIActivityIndicatorView alloc]initWithFrame:CGRectMake(self.view.frame.size.width / 2, 30, 100, 100)];
+    [self.view addSubview:self.activityIndicator];
+    self.activityIndicator.hidden = YES;
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    self.fetcher = [[ProductFetcher alloc] init];
-    [self.fetcher requestProducts];
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(productListUpdated) name:[ProductFetcher responseReceived] object:nil];
+    
     //        self.products = self.fetcher.products;
     //        [self.tableView reloadData];
     //    }];
 }
 
+
+-(void)viewDidAppear:(BOOL)animated{
+    if (!self.products){
+        self.activityIndicator.hidden = NO;
+        [self.activityIndicator startAnimating];
+        self.fetcher = [[ProductFetcher alloc] init];
+        [self.fetcher requestProductsWithError:nil];
+        [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(productListUpdated) name:[ProductFetcher responseReceived] object:nil];
+    }
+}
+
+
 -(void)productListUpdated{
     self.products = self.fetcher.products;
     [self.tableView reloadData];
+    [self.activityIndicator stopAnimating];
+    self.activityIndicator.hidden = YES;
 }
 
 #pragma mark - Table view data source
@@ -72,6 +89,20 @@
 }
 
 
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+//    UIViewController * detailViewController = [[UIViewController alloc]init];
+    
+//    UIStoryboardSegue * segue = [[UIStoryboardSegue  alloc]initWithIdentifier:@"ProtoSegue" source:self destination:detailViewController];
+    self.selectedProductId = self.products[indexPath.row].productId;
+    [self performSegueWithIdentifier:@"ProtoSegue" sender:nil];
+    
+//    [self presentViewController:detailViewController animated:YES completion:^{
+//
+//    }];
+    
+    //[UIStoryboardSegue segueWithIdentifier:nil source:self destination:detailViewController];
+    
+}
 /*
  // Override to support conditional editing of the table view.
  - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -106,14 +137,17 @@
  }
  */
 
-/*
+
  #pragma mark - Navigation
  
  // In a storyboard-based application, you will often want to do a little preparation before navigation
  - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
  // Get the new view controller using [segue destinationViewController].
  // Pass the selected object to the new view controller.
+     ProductDetailViewController * detailViewController = (ProductDetailViewController *)segue.destinationViewController;
+     detailViewController.productId = self.selectedProductId;
+     detailViewController.fetcher = self.fetcher;
  }
- */
+
 
 @end

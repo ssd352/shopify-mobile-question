@@ -18,6 +18,7 @@
 		5C199D1C1FE72FEA00852A01 /* ProductFetcherTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C199D1A1FE72FE900852A01 /* ProductFetcherTests.m */; };
 		5C199D361FE730BD00852A01 /* ProductFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C199D331FE730BD00852A01 /* ProductFetcher.m */; };
 		5C199D371FE730BD00852A01 /* Product.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C199D351FE730BD00852A01 /* Product.m */; };
+		5C862C5E1FE891AA007DCA54 /* ProductDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C862C5D1FE891AA007DCA54 /* ProductDetailViewController.m */; };
 		5CAF009B1FE73C2C000C8BEB /* ProductsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CAF009A1FE73C2C000C8BEB /* ProductsTableViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -59,6 +60,8 @@
 		5C199D331FE730BD00852A01 /* ProductFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductFetcher.m; sourceTree = "<group>"; };
 		5C199D341FE730BD00852A01 /* ProductFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductFetcher.h; sourceTree = "<group>"; };
 		5C199D351FE730BD00852A01 /* Product.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Product.m; sourceTree = "<group>"; };
+		5C862C5C1FE891AA007DCA54 /* ProductDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProductDetailViewController.h; sourceTree = "<group>"; };
+		5C862C5D1FE891AA007DCA54 /* ProductDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProductDetailViewController.m; sourceTree = "<group>"; };
 		5CAF00991FE73C2C000C8BEB /* ProductsTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProductsTableViewController.h; sourceTree = "<group>"; };
 		5CAF009A1FE73C2C000C8BEB /* ProductsTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProductsTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -121,6 +124,8 @@
 				5C199CF21FE72F8100852A01 /* main.m */,
 				5CAF00991FE73C2C000C8BEB /* ProductsTableViewController.h */,
 				5CAF009A1FE73C2C000C8BEB /* ProductsTableViewController.m */,
+				5C862C5C1FE891AA007DCA54 /* ProductDetailViewController.h */,
+				5C862C5D1FE891AA007DCA54 /* ProductDetailViewController.m */,
 			);
 			path = ShopifyTestTask;
 			sourceTree = "<group>";
@@ -292,6 +297,7 @@
 				5C199D371FE730BD00852A01 /* Product.m in Sources */,
 				5C199D361FE730BD00852A01 /* ProductFetcher.m in Sources */,
 				5C199CF31FE72F8100852A01 /* main.m in Sources */,
+				5C862C5E1FE891AA007DCA54 /* ProductDetailViewController.m in Sources */,
 				5C199CE51FE72F8100852A01 /* AppDelegate.m in Sources */,
 				5CAF009B1FE73C2C000C8BEB /* ProductsTableViewController.m in Sources */,
 			);
