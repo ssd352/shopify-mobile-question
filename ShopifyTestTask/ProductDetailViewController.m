@@ -14,6 +14,7 @@
 //@property (weak, nonatomic) IBOutlet UINavigationItem *navigationItemBar;
 @property Product * product;
 @property ProductFetcher * fetcher;
+@property (weak, nonatomic) IBOutlet UILabel *productInfoLabel;
 @end
 
 @implementation ProductDetailViewController
@@ -34,15 +35,19 @@
     self.fetcher = [[ProductFetcher alloc]init];
     [self.fetcher getProductDetailById:self.productId onCompletion:^(Product * _Nullable product, NSError * _Nullable error) {
         self.product = product;
+        
         dispatch_async(dispatch_get_main_queue(), ^(void){
             self.navigationItem.title = product.title;
             [self.activityIndicatorView stopAnimating];
             self.activityIndicatorView.hidden = YES;
+            NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+            dateFormat.dateFormat = @"MM-dd-yyyy HH:mm";
+            
+            
+            
+            self.productInfoLabel.text = [NSString stringWithFormat:@"Type: %@\nVendor: %@\nCreated At: %@\nPublished At: %@\n", product.productType, product.vendor, [dateFormat stringFromDate:product.createdAt], [dateFormat stringFromDate:product.publishedAt]];
         });
-                NSLog(@"Product Title is %@", product.title);
-        
-        
-        
+    NSLog(@"Product Title is %@", product.title);
     }];
 }
 

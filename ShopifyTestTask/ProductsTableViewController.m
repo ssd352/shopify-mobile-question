@@ -13,19 +13,22 @@
 
 @interface ProductsTableViewController ()
 @property ProductsConnector * fetcher;
-@property NSArray <Product * > * products;
+@property NSMutableArray <Product * > * products;
 @property NSString * selectedProductId;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *searchBarTopConstraint;
 @end
 
 @implementation ProductsTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    self.activityIndicator.hidden = YES;
+//    self.searchBar.delegate = self;
+    self.products = [[NSMutableArray alloc]init];
+    //    self.activityIndicator.hidden = YES;
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -43,27 +46,56 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)showActivityIndicator{
+    self.activityIndicator.hidden = NO;
+    self.searchBarTopConstraint.constant = 0;
+    [self.activityIndicator startAnimating];
+}
+
+-(void)hideActivityIndicator{
+    [self.activityIndicator stopAnimating];
+    self.activityIndicator.hidden = YES;
+    
+    self.searchBarTopConstraint.constant = -20;
+}
+
 
 -(void)viewDidAppear:(BOOL)animated{
-    if (!self.products){
-        self.activityIndicator.hidden = NO;
-        [self.activityIndicator startAnimating];
+    if (self.products.count == 0){
+        [self showActivityIndicator];
         self.fetcher = [[ProductsConnector alloc] init];
-        [self.fetcher requestProductsWithError:nil];
+        [self.fetcher requestProductsWithFilter:@"" andError:nil];
         [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(productListUpdated) name:[ProductsConnector responseReceived] object:nil];
     }
 }
 
 
 -(void)productListUpdated{
-    self.products = self.fetcher.products;
+    //TODO: check for errors first, if there are no errors the clear the array
+    [self.products removeAllObjects];
+    if (self.fetcher.products.count != 0)
+        [self.products addObjectsFromArray:self.fetcher.products];
     dispatch_async(dispatch_get_main_queue(), ^(void){
         [self.tableView reloadData];
-        [self.activityIndicator stopAnimating];
-        self.activityIndicator.hidden = YES;
+        [self hideActivityIndicator];
     });
     
 }
+
+
+-(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
+    NSLog(@"searchText is %@", searchText);
+    [self.fetcher requestProductsWithFilter:searchBar.text andError:nil];
+}
+
+
+-(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
+    [self resignFirstResponder];
+    [self.searchBar endEditing:YES];
+    
+    
+}
+
 
 #pragma mark - Table view data source
 
@@ -93,7 +125,9 @@
     frame.size = CGSizeMake(100, 100);
     cell.imageView.frame = frame;
     cell.imageView.contentMode = UIViewContentModeScaleAspectFit;
-    cell.imageView.image = [UIImage imageWithData:product.image];
+    if (product.image){
+        cell.imageView.image = [UIImage imageWithData:product.image];
+    }
     
     return cell;
 }
@@ -111,8 +145,9 @@
 //    }];
     
     //[UIStoryboardSegue segueWithIdentifier:nil source:self destination:detailViewController];
-    
 }
+
+
 /*
  // Override to support conditional editing of the table view.
  - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -158,6 +193,7 @@
      detailViewController.productId = self.selectedProductId;
 //     detailViewController.fetcher = self.fetcher;
  }
+
 
 
 @end

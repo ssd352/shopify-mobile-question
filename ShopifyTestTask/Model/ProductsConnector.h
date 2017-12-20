@@ -9,10 +9,10 @@
 #import <Foundation/Foundation.h>
 #import "Product.h"
 
-@interface ProductsConnector : NSObject
+@interface ProductsConnector : NSObject<NSURLSessionDelegate>
 @property (readonly) NSArray <Product *> * _Nullable products;
 
--(void) requestProductsWithError: ( NSError * _Nullable ) error;
+-(void) requestProductsWithFilter:(NSString *)filter andError: ( NSError * _Nullable ) error;
 +(NSString *_Nonnull)responseReceived;
 
 @end

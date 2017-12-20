@@ -23,12 +23,16 @@ static NSString *const PRODUCT_URL = @"https://shopicruit.myshopify.com/admin/pr
     NSURLSessionDataTask * dataTask = [sessionWithoutADelegate dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         NSDictionary * result = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil][@"product"];
         product.title = result[@"title"];
+        product.vendor = result[@"vendor"];
+        product.bodyHtml = result[@"body_html"];
+        product.productType = result[@"product_type"];
+        
         //        NSLog(@"Result is %@\nResponse is %@\nError is %@", result, response, error);
         product.productId = result[@"id"];
         NSLog(@"Title is %@ and id is %@", product.title, product.productId);
         
         NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
-        dateFormat.dateFormat = @"YYYY-MM-DDTHH:MM:SS";
+        dateFormat.dateFormat = @"yyyy-MM-dd'T'HH:mm:ssZ";
         
         NSDate *date = [dateFormat dateFromString:result[@"created_at"]];
         product.createdAt =  [date copy];

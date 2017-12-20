@@ -14,6 +14,7 @@
 @property NSString * productDescription;
 @property NSString * vendor;
 @property NSString * bodyHtml;
+@property NSString * productType;
 
 @property NSData * image;
 
