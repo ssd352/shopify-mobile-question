@@ -12,7 +12,7 @@
 @interface ProductFetcher : NSObject
 
 
--(void)getProductDetailById:(NSString *)productId onCompletion:(void (^)(Product * _Nullable, NSError * _Nullable))completionHandler;
+-(void)getProductDetailById:(NSString * _Nonnull)productId onCompletion:(void (^_Nonnull)(Product * _Nullable, NSError * _Nullable))completionHandler;
 
 
 @end

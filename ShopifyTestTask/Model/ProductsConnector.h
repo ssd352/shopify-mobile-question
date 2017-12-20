@@ -12,7 +12,7 @@
 @interface ProductsConnector : NSObject<NSURLSessionDelegate>
 @property (readonly) NSArray <Product *> * _Nullable products;
 
--(void) requestProductsWithFilter:(NSString *)filter andError: ( NSError * _Nullable ) error;
+-(void) requestProductsWithFilter:(NSString * _Nullable)filter andError: ( NSError * _Nullable ) error;
 +(NSString *_Nonnull)responseReceived;
 
 @end

@@ -64,7 +64,7 @@
     if (self.products.count == 0){
         [self showActivityIndicator];
         self.fetcher = [[ProductsConnector alloc] init];
-        [self.fetcher requestProductsWithFilter:@"" andError:nil];
+        [self.fetcher requestProductsWithFilter:nil andError:nil];
         [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(productListUpdated) name:[ProductsConnector responseReceived] object:nil];
     }
 }

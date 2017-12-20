@@ -87,7 +87,12 @@ static NSString *const RESPONSE_RECEIVED = @"rr";
 -(void)sendRequestForPage: (NSNumber *) page withFilter:(NSString *) filter andError:( NSError * _Nullable ) error{
     self.sessionWithoutADelegate = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration] delegate:self delegateQueue:nil];
 //    self.sessionWithoutADelegate.delegate
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:PRODUCTS_URL, page, filter]];
+    NSString * completeURL;
+    if (filter)
+        completeURL = [NSString stringWithFormat:PRODUCTS_URL, page, filter];
+    else
+        completeURL =[NSString stringWithFormat:PRODUCTS_URL, page, @""];
+    NSURL *url = [NSURL URLWithString:completeURL];
 
     NSURLSessionDataTask * sessionDataTask = [self.sessionWithoutADelegate dataTaskWithURL:url completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
         
