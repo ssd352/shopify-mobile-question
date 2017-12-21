@@ -85,6 +85,7 @@
 
 -(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
     NSLog(@"searchText is %@", searchText);
+    [self showActivityIndicator];
     [self.fetcher requestProductsWithFilter:searchBar.text andError:nil];
 }
 

@@ -100,6 +100,9 @@ static NSString *const RESPONSE_RECEIVED = @"rr";
             [self fillProducts];
             
         }
+        else{
+            self.products = [[NSArray alloc]init];
+        }
         //TODO: Add more error handling
 //        [[NSNotificationCenter defaultCenter] postNotificationName:RESPONSE_RECEIVED object:nil userInfo:nil];
         
