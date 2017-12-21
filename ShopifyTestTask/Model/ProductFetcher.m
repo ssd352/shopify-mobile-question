@@ -21,25 +21,28 @@ static NSString *const PRODUCT_URL = @"https://shopicruit.myshopify.com/admin/pr
     NSURLSession * sessionWithoutADelegate = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
     
     NSURLSessionDataTask * dataTask = [sessionWithoutADelegate dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-        NSDictionary * result = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil][@"product"];
-        product.title = result[@"title"];
-        product.vendor = result[@"vendor"];
-        product.bodyHtml = result[@"body_html"];
-        product.productType = result[@"product_type"];
         
-        //        NSLog(@"Result is %@\nResponse is %@\nError is %@", result, response, error);
-        product.productId = result[@"id"];
-        NSLog(@"Title is %@ and id is %@", product.title, product.productId);
-        
-        NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
-        dateFormat.dateFormat = @"yyyy-MM-dd'T'HH:mm:ssZ";
-        
-        NSDate *date = [dateFormat dateFromString:result[@"created_at"]];
-        product.createdAt =  [date copy];
-        
-        date = [dateFormat dateFromString:result[@"published_at"]];
-        product.publishedAt =  [date copy];
-        completionHandler(product, error);
+        if (data){
+            NSDictionary * result = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil][@"product"];
+            product.title = result[@"title"];
+            product.vendor = result[@"vendor"];
+            product.bodyHtml = result[@"body_html"];
+            product.productType = result[@"product_type"];
+            
+            //        NSLog(@"Result is %@\nResponse is %@\nError is %@", result, response, error);
+            product.productId = result[@"id"];
+            NSLog(@"Title is %@ and id is %@", product.title, product.productId);
+            
+            NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+            dateFormat.dateFormat = @"yyyy-MM-dd'T'HH:mm:ssZ";
+            
+            NSDate *date = [dateFormat dateFromString:result[@"created_at"]];
+            product.createdAt =  [date copy];
+            
+            date = [dateFormat dateFromString:result[@"published_at"]];
+            product.publishedAt =  [date copy];
+            completionHandler(product, error);
+        }
         
     }];
     

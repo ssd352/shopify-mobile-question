@@ -87,7 +87,7 @@ static NSString *const RESPONSE_RECEIVED = @"rr";
 -(void)sendRequestForPage: (NSNumber *) page withFilter:(NSString *) filter andError:( NSError * _Nullable ) error{
     self.sessionWithoutADelegate = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration] delegate:self delegateQueue:nil];
 //    self.sessionWithoutADelegate.delegate
-    NSString * completeURL;
+    NSString * completeURL;//, * trimmedFilter = [filter stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
     if (filter)
         completeURL = [NSString stringWithFormat:PRODUCTS_URL, page, filter];
     else
@@ -95,9 +95,12 @@ static NSString *const RESPONSE_RECEIVED = @"rr";
     NSURL *url = [NSURL URLWithString:completeURL];
 
     NSURLSessionDataTask * sessionDataTask = [self.sessionWithoutADelegate dataTaskWithURL:url completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-        
-        self.result = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
-        [self fillProducts];
+        if (data){
+            self.result = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
+            [self fillProducts];
+            
+        }
+        //TODO: Add more error handling
 //        [[NSNotificationCenter defaultCenter] postNotificationName:RESPONSE_RECEIVED object:nil userInfo:nil];
         
     }];
