@@ -30,7 +30,7 @@
     // Use XCTAssert and related functions to verify your tests produce the correct results.
     ProductsConnector * pf = [[ProductsConnector alloc]init];
     NSLog(@"Sending Request");
-    [pf requestProducts];
+    [pf requestProductsWithFilter:nil andError:nil];
     for (Product * p in pf.products) {
         NSLog(@"title is %@ and description is %@", p.title, p.productDescription);
     }
