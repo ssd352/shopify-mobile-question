@@ -48,7 +48,13 @@
 
 -(void)showActivityIndicator{
     self.activityIndicator.hidden = NO;
+    
+    [self.view layoutIfNeeded];
     self.searchBarTopConstraint.constant = 0;
+    
+    [UIView animateWithDuration:0.5 animations:^{
+        [self.view layoutIfNeeded];
+    }];
     [self.activityIndicator startAnimating];
 }
 
@@ -56,7 +62,12 @@
     [self.activityIndicator stopAnimating];
     self.activityIndicator.hidden = YES;
     
+    [self.view layoutIfNeeded];
     self.searchBarTopConstraint.constant = -20;
+    
+    [UIView animateWithDuration:0.5 animations:^{
+        [self.view layoutIfNeeded];
+    }];
 }
 
 
