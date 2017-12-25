@@ -27,6 +27,16 @@ static NSString *const RESPONSE_RECEIVED = @"rr";
 @implementation ProductsConnector
 
 
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        self.products = nil;
+        self.sessionWithoutADelegate = nil;
+    }
+    return self;
+}
+
 +(NSString *)responseReceived{
     return RESPONSE_RECEIVED;
 }
@@ -85,6 +95,16 @@ static NSString *const RESPONSE_RECEIVED = @"rr";
 
 
 -(void)sendRequestForPage: (NSNumber *) page withFilter:(NSString *) filter andError:( NSError * _Nullable ) error{
+//    self.products = nil;
+//    if (self.sessionWithoutADelegate){
+//        [self.sessionWithoutADelegate getAllTasksWithCompletionHandler:^(NSArray<__kindof NSURLSessionTask *> * _Nonnull tasks) {
+//            for (NSURLSessionTask * task in tasks) {
+//                [task cancel];
+//            }
+//        }];
+//        [self.sessionWithoutADelegate invalidateAndCancel];
+//    }
+    
     self.sessionWithoutADelegate = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration] delegate:self delegateQueue:nil];
 //    self.sessionWithoutADelegate.delegate
     NSString * completeURL;//, * trimmedFilter = [filter stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
@@ -110,10 +130,11 @@ static NSString *const RESPONSE_RECEIVED = @"rr";
     
     [sessionDataTask resume];
     [self.sessionWithoutADelegate finishTasksAndInvalidate];
-    
 }
 
 -(void)URLSession:(NSURLSession *)session didBecomeInvalidWithError:(NSError *)error{
-    [[NSNotificationCenter defaultCenter] postNotificationName:RESPONSE_RECEIVED object:nil userInfo:nil];
+//    if (self.products){
+        [[NSNotificationCenter defaultCenter] postNotificationName:RESPONSE_RECEIVED object:nil userInfo:nil];
+//    }
 }
 @end
